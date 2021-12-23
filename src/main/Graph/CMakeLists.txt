@@ -1,4 +1,3 @@
-
 add_library(
 	Graph
 	Graph.cpp
