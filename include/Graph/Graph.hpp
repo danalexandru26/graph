@@ -6,7 +6,7 @@
 class Graph
 {
 public:
-	Graph();
+	Graph() = default;
 
 	bool add_vertex(std::string index);
 	bool add_edge(std::string index_v, std::string index_w);

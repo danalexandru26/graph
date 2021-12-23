@@ -2,8 +2,9 @@
 
 int main()
 {
-	Graph x();
+	Graph x;
 
+	x.add_vertex("0");
 
 
 	return 0;
