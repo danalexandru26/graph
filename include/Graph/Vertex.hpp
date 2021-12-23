@@ -13,5 +13,6 @@ struct Vertex
 
 	Vertex();
 	Vertex(std::size_t weight, std::string index);
+	~Vertex();
 
 };

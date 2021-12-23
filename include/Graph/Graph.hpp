@@ -4,6 +4,7 @@
 class Graph
 {
 public:
+	Graph();
 	Graph(std::size_t index);
 
 private:
