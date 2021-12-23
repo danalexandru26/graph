@@ -1,5 +1,5 @@
 #include<Graph/Graph.hpp>
-
+#include<Graph/Vertex.hpp>
 
 int main()
 {
