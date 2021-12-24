@@ -7,6 +7,7 @@ struct Vertex
 {
 	std::size_t weight;
 	std::string index;
+	std::string colour;
 
 	std::vector<Vertex*> adjacency;
 
