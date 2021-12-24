@@ -9,10 +9,17 @@ int main()
 	x.add_vertex("2");
 
 	x.add_edge("0", "1");
+	x.add_edge("1", "0");
 	x.add_edge("1", "2");
+	x.add_edge("2", "1");
 	x.add_edge("0", "2");
+	x.add_edge("2", "0");
 
 	x.bfs("0");
+
+	std::cout << '\n';
+
+	x.path("2");
 
 	return 0;
 }

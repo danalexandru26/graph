@@ -46,8 +46,21 @@ void Graph::bfs(std::string start)
 			if (vertex->colour == "white")
 			{
 				vertex->colour = "black";
+				vertex->nther = extract;
 				queue.push(vertex);
 			}
 		}
 	}
+}
+
+void Graph::path(std::string start)
+{
+	if (vertices[start]->nther == nullptr)
+	{
+		std::cout << start << ' ';
+		return;
+	}
+	path(vertices[start]->nther->index);
+
+	std::cout << start << ' ';
 }
