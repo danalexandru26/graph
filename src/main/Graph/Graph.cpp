@@ -6,7 +6,6 @@ Graph::~Graph()
 	{
 		delete vertex.second;
 	}
-
 }
 
 bool Graph::add_vertex(std::string index)
@@ -39,13 +38,13 @@ void Graph::bfs(std::string start)
 {
 	for (auto& vertex : vertices)
 	{
-		vertex.second->colour = "white";
+		vertex.second->colour = white;
 	}
 
 	std::queue<Vertex*> queue;
 	auto vertex = vertices.find(start)->second;
 
-	vertex->colour = "black";
+	vertex->colour = black;
 	queue.push(vertex);
 
 	while (!queue.empty())
@@ -56,9 +55,9 @@ void Graph::bfs(std::string start)
 
 		for (auto vertex : extract->adjacency)
 		{
-			if (vertex->colour == "white")
+			if (vertex->colour == white)
 			{
-				vertex->colour = "black";
+				vertex->colour = black;
 				vertex->nther = extract;
 				queue.push(vertex);
 			}
@@ -70,12 +69,12 @@ void Graph::dfs()
 {
 	for (auto& vertex : vertices)
 	{
-		vertex.second->colour = "white";
+		vertex.second->colour = white;
 	}
 
 	for (auto& vertex : vertices)
 	{
-		if (vertex.second->colour == "white")
+		if (vertex.second->colour == white)
 		{
 			dfs_visit(vertex.first);
 		}
@@ -84,11 +83,11 @@ void Graph::dfs()
 
 void Graph::dfs_visit(std::string index)
 {
-	vertices[index]->colour = "black";
+	vertices[index]->colour = black;
 
 	for (auto vertex : vertices[index]->adjacency)
 	{
-		if (vertex->colour == "white")
+		if (vertex->colour == white)
 		{
 			vertex->nther = vertices[index];
 			dfs_visit(vertex->index);

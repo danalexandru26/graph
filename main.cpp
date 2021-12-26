@@ -17,8 +17,6 @@ int main()
 
 	x.bfs("0");
 
-	std::cout << '\n';
-
 	x.dfs();
 
 	return 0;
