@@ -37,6 +37,11 @@ bool Graph::add_edge(std::string index_v, std::string index_w)
 
 void Graph::bfs(std::string start)
 {
+	for (auto& vertex : vertices)
+	{
+		vertex.second->colour = "white";
+	}
+
 	std::queue<Vertex*> queue;
 	auto vertex = vertices.find(start)->second;
 
@@ -57,6 +62,36 @@ void Graph::bfs(std::string start)
 				vertex->nther = extract;
 				queue.push(vertex);
 			}
+		}
+	}
+}
+
+void Graph::dfs()
+{
+	for (auto& vertex : vertices)
+	{
+		vertex.second->colour = "white";
+	}
+
+	for (auto& vertex : vertices)
+	{
+		if (vertex.second->colour == "white")
+		{
+			dfs_visit(vertex.first);
+		}
+	}
+}
+
+void Graph::dfs_visit(std::string index)
+{
+	vertices[index]->colour = "black";
+
+	for (auto vertex : vertices[index]->adjacency)
+	{
+		if (vertex->colour == "white")
+		{
+			vertex->nther = vertices[index];
+			dfs_visit(vertex->index);
 		}
 	}
 }

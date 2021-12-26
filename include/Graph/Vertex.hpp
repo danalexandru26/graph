@@ -3,6 +3,9 @@
 #include<string>
 #include<vector>
 
+#define black std::string("black")
+#define white std::string("white")
+
 struct Vertex
 {
 	std::size_t weight;

@@ -19,7 +19,7 @@ int main()
 
 	std::cout << '\n';
 
-	x.path("2", "1");
+	x.dfs();
 
 	return 0;
 }
