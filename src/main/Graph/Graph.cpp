@@ -1,5 +1,14 @@
 #include<Graph/Graph.hpp>
 
+Graph::~Graph()
+{
+	for (auto vertex : vertices)
+	{
+		delete vertex.second;
+	}
+
+}
+
 bool Graph::add_vertex(std::string index)
 {
 	if (vertices.find(index) == vertices.end())
@@ -21,7 +30,6 @@ bool Graph::add_edge(std::string index_v, std::string index_w)
 	{
 		v->adjacency.push_back(w);
 		return true;
-	
 	}
 	return false;
 }
@@ -53,14 +61,18 @@ void Graph::bfs(std::string start)
 	}
 }
 
-void Graph::path(std::string start)
+void Graph::path(std::string v, std::string w)
 {
-	if (vertices[start]->nther == nullptr)
+	if (v == w)
 	{
-		std::cout << start << ' ';
+		std::cout << v << ' ';
 		return;
 	}
-	path(vertices[start]->nther->index);
-
-	std::cout << start << ' ';
+	else if (vertices[v]->nther == nullptr)
+	{
+		std::cout << "\nNo path";
+		return;
+	}
+	path(vertices[v]->nther->index, w);
+	std::cout << v << ' ';
 }

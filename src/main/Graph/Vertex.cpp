@@ -10,10 +10,5 @@ Vertex::Vertex(std::size_t weight, std::string index)
 
 Vertex::~Vertex()
 {
-	for (std::size_t i = 0; i < adjacency.size(); ++i)
-	{
-		delete adjacency[i];
-	}
-
 	adjacency.clear();
 }
